@@ -1,0 +1,16 @@
+# ---- Python ----
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# ---- 厂商源码（独立 git 仓库，不纳入本仓库）----
+#   remote: https://gh-proxy.com/https://github.com/alientek-openedv/atk-logic
+#   用途: 逆向协议时的对照源码（pv/controller/session_controller.cpp、pv/thread/thread_work.cpp 等）
+#   重建: git clone https://gh-proxy.com/https://github.com/alientek-openedv/atk-logic vendor-src
+vendor-src/
+
+# ---- USB 抓包原始数据（21MB，可由脚本重抓）----
+#   重抓: atk-logic/tools/usbcap/capture_session.ps1 （见同目录 README.md）
+#   结论已固化在 PROTOCOL-NOTES.md / atkproto.py，原始 pcap 不必入库
+*.pcap

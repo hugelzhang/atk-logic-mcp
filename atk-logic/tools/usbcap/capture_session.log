@@ -1,0 +1,25 @@
+﻿=== capture session start (09/11/2026 22:36:48) ===
+22:36:49 step1: init NonStandardHWIDs (-I)
+Hardware ID: USB\ROOT_HUB30&VID8086&PIDA71E&REV0000
+Hardware ID: USB\ROOT_HUB30&VID8086&PIDA71E
+Hardware ID: USB\ROOT_HUB30
+Found standard HWID
+Hardware ID: USB\ROOT_HUB30&VID8086&PID51ED&REV0001
+Hardware ID: USB\ROOT_HUB30&VID8086&PID51ED
+Hardware ID: USB\ROOT_HUB30
+Found standard HWID
+22:36:49 step2: start capture on hubs 1..4
+22:36:49   USBPcap1 -> pid 25656
+22:36:49   USBPcap2 -> pid 15092
+22:36:49   USBPcap3 -> pid 18292
+22:36:49   USBPcap4 -> pid 17912
+22:36:52   hub1.pcap = 24 bytes (greater than 24 means traffic)
+22:36:52   hub2.pcap = 8764 bytes (greater than 24 means traffic)
+22:36:52   hub3.pcap = 0 bytes (greater than 24 means traffic)
+22:36:52   hub4.pcap = 0 bytes (greater than 24 means traffic)
+22:37:29 step3: STOP flag seen, waiting 3s to flush
+22:37:33   final hub1.pcap = 24 bytes
+22:37:33   final hub2.pcap = 21379610 bytes
+22:37:33   final hub3.pcap = 0 bytes
+22:37:33   final hub4.pcap = 0 bytes
+22:37:33 === done ===

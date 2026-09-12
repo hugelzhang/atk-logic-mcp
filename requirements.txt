@@ -1,0 +1,6 @@
+# 01-ATK-Logic 逻辑分析仪 MCP 依赖
+# 安装: <venv-python> -m pip install -r requirements.txt
+mcp>=1.2.0
+pyusb>=1.2.1
+pyserial>=3.5          # smoke_test.py 的在线 UART 实测 / 老脚本; MCP 本体不依赖
+pywinauto>=0.6.8       # 仅 drivers/install_driver.bat (Zadig 驱动自动化) 需要
