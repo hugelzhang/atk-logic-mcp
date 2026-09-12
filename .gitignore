@@ -10,6 +10,9 @@ __pycache__/
 #   重建: git clone https://gh-proxy.com/https://github.com/alientek-openedv/atk-logic vendor-src
 vendor-src/
 
+# ---- 采集产物（默认存档目录，见 server.py::_default_out_dir）----
+atk-logic/captures/
+
 # ---- USB 抓包原始数据（21MB，可由脚本重抓）----
 #   重抓: atk-logic/tools/usbcap/capture_session.ps1 （见同目录 README.md）
 #   结论已固化在 PROTOCOL-NOTES.md / atkproto.py，原始 pcap 不必入库

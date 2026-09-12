@@ -17,7 +17,7 @@
 | `pwm` | 控制设备自带 PWM 输出（channel=0/1），自测用 |
 | `capture` | 采单通道：统计 + 波形(下采样) + 电平变化点 + order-3 偏移 |
 | `capture_multi` | **一次采集拿多通道统计**（硬件本来就同时回 16 通道，不加耗时） |
-| `save_capture` | **全量**存盘 CSV + BIN + JSON 元数据（默认 `<当前目录>/docs/波形存档/`）；`fmt="atkdl"` 直接写厂商格式 |
+| `save_capture` | **全量**存盘 CSV + BIN + JSON 元数据（默认目录见 `ATK_SAVE_DIR`，未设则 `<工具目录>/captures/`）；`fmt="atkdl"` 直接写厂商格式 |
 | `load_waveform` | **离线**分析 `.atkdl` / 裸 `.bin`（不占设备）：会话摘要 + 统计 + 跳变 + 可选 UART |
 | `decode_uart` | 采集并解码 UART（8N1，baud=0 → 自动波特率） |
 | `list_protocols` | 列出可用的 sigrok 协议解码器（208 个） |

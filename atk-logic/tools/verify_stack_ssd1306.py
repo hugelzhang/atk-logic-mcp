@@ -3,14 +3,33 @@
 
 用途：验证 server.py 里"通道绑给链路最底层"的修正是对的。
 """
-import sys, os
-BASE = r"D:/MCP/01-atk-logic/atk-logic"
+import sys, os, glob
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # .../atk-logic
 sys.path.insert(0, BASE)
 
 import srdhost as S
 import atkdl
 
-PATH = sys.argv[1] if len(sys.argv) > 1 else r"C:/Users/27321/docs/波形存档/atk_bus_20260912_225351.atkdl"
+
+def _pick_path():
+    """必须给 .atkdl 路径 —— 本脚本只对 I²C 波形有意义 (CH0=SCL, CH1=SDA)。
+
+    早先这里硬编码了一个 C:\\Users\\<user>\\docs\\波形存档\\xxx.atkdl（工具当时的默认落盘位置），
+    现在改成必须显式传路径，省得拿错文件喂给 i2c 解码器。
+    """
+    if len(sys.argv) > 1:
+        return sys.argv[1]
+    cands = []
+    for sub in ("docs/波形存档", "captures"):
+        cands += glob.glob(os.path.join(BASE, *sub.split("/"), "*.atkdl"))
+    lines = ["用法: python verify_stack_ssd1306.py <某个 .atkdl>",
+             "      (只对 I²C 波形有意义: CH0=SCL, CH1=SDA)"]
+    lines += ["  现有存档:"] + ["  - " + os.path.relpath(c, BASE) for c in sorted(cands)]
+    sys.exit("\n".join(lines))
+
+
+PATH = _pick_path()
+print("分析文件:", PATH)
 
 chain = [S.resolve("i2c"), S.resolve("ssd1306")]
 print("链路:", " -> ".join(chain))

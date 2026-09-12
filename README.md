@@ -141,7 +141,8 @@ atk-logic/
   smoke_test.py   真机自检     test_offline.py / test_mcp.py / test_atkdl.py / test_srdhost.py
   tools/          真机专项验证脚本（200MHz 档位 / RLE / 总线解码 / 叠层链路）
   drivers/        WinUSB 驱动安装（Zadig）
-  docs/波形存档/  可复现的波形证据（.atkdl）
+  docs/波形存档/  随仓库保存的波形样例（只有 demo_pwm1k_1MHz.atkdl 被测试引用）
+  captures/       运行时自动存证目录（默认，已 gitignore；可用 ATK_SAVE_DIR 改）
   PROTOCOL-NOTES.md / TEST-REPORT.md
 ```
 

@@ -252,8 +252,16 @@ def capture_multi(channels: str = "0", depth: int = 200000, sample_rate_mhz: int
 
 # ============================== 存盘 ==============================
 def _default_out_dir():
-    d = os.path.join(os.getcwd(), "docs", "波形存档")
-    return d
+    """存档默认目录（不再依赖当前工作目录）。
+
+    优先级: 环境变量 ATK_SAVE_DIR > <本文件目录>/captures/
+    旧行为是 <当前目录>/docs/波形存档/ —— agent 的 cwd 通常是用户主目录,
+    于是抓包散进了 C:\\Users\\<user>\\docs\\波形存档\\, 故改为锚定工具目录。
+    """
+    env = os.environ.get("ATK_SAVE_DIR", "").strip()
+    if env:
+        return env
+    return os.path.join(os.path.dirname(os.path.abspath(__file__)), "captures")
 
 
 @mcp.tool()
@@ -262,7 +270,7 @@ def save_capture(channel: int = 0, depth: int = 2000000, sample_rate_mhz: int = 
                  mode: str = "buffer", channels: str = "", out_file: str = "",
                  out_dir: str = "", also_raw: bool = True, tag: str = "",
                  fmt: str = "csv", rle: bool = False) -> str:
-    """采集并**全量**(不下采样)存盘。默认目录 `<当前目录>/docs/波形存档/`。
+    """采集并**全量**(不下采样)存盘。默认目录: `ATK_SAVE_DIR` 环境变量, 或 `<工具目录>/captures/`。
 
     channels: 空 → 用 channel; 或 "0,1,2" 一次存多通道 (同一次采集)。
     out_file: 指定单个文件的完整路径 (单通道时用; fmt=atkdl 时可放多通道)。
