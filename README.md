@@ -162,7 +162,9 @@ atk-logic/
 
 ## 第三方与许可
 
-- `atk-logic/drivers/zadig.exe`：第三方工具（GPLv3），仅用于装 WinUSB 驱动，来源 <https://zadig.akeo.ie/>。
-- `atk-logic/libusb-1.0.dll`：libusb（LGPL-2.1），pyusb 的后端。
-- 协议解码器运行时从本机厂商安装目录加载，未随本仓库分发。
-- 本项目自身**尚未选定开源许可证**。
+**本项目自身采用 MIT 许可，见 [LICENSE](LICENSE)。** 非官方项目，与正点原子 / ALIENTEK 无关联。
+
+- `atk-logic/drivers/zadig.exe`：第三方工具（GPLv3），仅用于装 WinUSB 驱动。
+  主页 <https://zadig.akeo.ie/>，源码 <https://github.com/pbatard/libwdi>；不需要的话删掉它自行下载即可。
+- `atk-logic/libusb-1.0.dll`：libusb（LGPL-2.1，<https://libusb.info/>），pyusb 的后端。
+- 协议解码器（sigrok Python PD，GPL-3.0）**运行时**从本机厂商安装目录加载，**未随本仓库分发**。

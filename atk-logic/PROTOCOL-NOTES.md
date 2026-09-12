@@ -166,7 +166,7 @@ ff 00 | 10 00 00 00 00 | (c5 09 00 00 00) × 16 | 00
 - **官方教程**：`http://www.openedv.com/ATK-Prod/ATK-Logic/docs/index.html`
   （「逻辑分析仪协议解码教程」，Sphinx；含参数说明 / sigrok 介绍 / 如何编写解码器（UART + 上层协议示例））
   - 注意：`www.openedv.com` 在本机解析到 `198.18.0.13`（代理软件的假 IP 段），
-    Hermes 的 web 抓取器会以"私网地址"拦掉 → **用 `curl -sSk -x http://127.0.0.1:7897` 走系统代理取**。
+    Hermes 的 web 抓取器会以"私网地址"拦掉 → **用 `curl -sSk -x http://127.0.0.1:<本地代理端口>` 走系统代理取**。
 - **官方明说**：ATK-Logic 的协议解码器 = **sigrok `libsigrokdecode` 的 Python 解码器**，可直接用、无需修改；
   正点原子只改了框架源码（fork：`github.com/alientek-openedv/atk_libsigrokdecode`，GPL-3.0，2026-08 仍更新）。
 - **本机现成资产**：

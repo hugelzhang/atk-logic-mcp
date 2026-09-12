@@ -8,7 +8,7 @@
 
 # 第一部分：v2 回归测试（2026-09-11）
 
-被测: ATK-Logic-Analyzer (SN `ATK22`, VID_1A86/PID_FFCC) + 本包 `atkproto.py` / `server.py`
+被测: ATK-Logic-Analyzer (SN 已隐去, VID_1A86/PID_FFCC) + 本包 `atkproto.py` / `server.py`
 环境: Windows 11, `D:/MCP/01-atk-logic/.venv` (Python 3.11.15, pyusb 1.2.x, pyserial 3.5)
 接线: 逻辑分析仪自带 **PWM0 输出 → CH0**（出厂跳线），其余通道悬空
 
@@ -30,7 +30,7 @@
 
 | # | 项目 | 实测值 | 结果 |
 |---|---|---|---|
-| 1 | 设备识别 | ATK ATK-Logic-Analyzer SN=ATK22 | ✅ |
+| 1 | 设备识别 | ATK ATK-Logic-Analyzer SN=（已隐去） | ✅ |
 | 2 | PWM0 1kHz 采集 CH0 | 频率 **1000.00 Hz**、占空比 **50.00%**、周期 1000/1000/1000、毛刺 0、窄脉冲 0 | ✅ 5/5 |
 | 3 | 改 2kHz 复核 | **2000.00 Hz** | ✅ |
 | 4 | 档位一致性 | 1MHz 档 1000.00Hz vs 25MHz 档 1000.00Hz（差值 0） | ✅ |
@@ -288,7 +288,7 @@ MCP 工具加 `rle=False` 参数（capture / capture_multi / save_capture / deco
 
 | 项 | 内容 |
 |----|------|
-| 逻辑分析仪 | 正点原子 ATK-Logic-Analyzer (VID 0x1A86 PID 0xFFCC, 序列号 ATK22) |
+| 逻辑分析仪 | 正点原子 ATK-Logic-Analyzer (VID 0x1A86 PID 0xFFCC, 序列号已隐去) |
 | USB转串口 | USB-SERIAL CH340 (COM9) |
 | 连接 | CH340 **TX → 逻辑分析仪 CH0**，**共地** |
 | 串口参数 | 115200, 8N1 |
